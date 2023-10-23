@@ -7,7 +7,7 @@ import Greeting from './components/Greeting';
 import Navbar from './components/Navbar';
 import StudentCard from './components/StudentCard';
 import StudentList from './components/StudentList';
-
+import Message from './components/Message';
 function App() {
   return (
     <div className="App">
@@ -39,6 +39,9 @@ function App() {
         controls
         volume="0.5"
       />
+
+
+      <Message  />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 import './App.css';
 
@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import StudentCard from './components/StudentCard';
 import StudentList from './components/StudentList';
 import Message from './components/Message';
+import ClickHandler from './components/ClickHandler';
+import ParentComponent from './components/ParentComponent';
 function App() {
   return (
     <div className="App">
@@ -30,18 +32,22 @@ function App() {
         />
       </StudentList>
 
-      <hr />
+      {/* <hr />
       <ReactPlayer url="https://vimeo.com/channels/top/22439234" />
       <hr />
       <ReactPlayer
         url="https://www.youtube.com/watch?v=kJQP7kiw5Fk"
-        playing
+        // playing
         controls
         volume="0.5"
-      />
+      /> */}
 
+      <Message />
+      <hr />
+      <ClickHandler />
 
-      <Message  />
+      <br />
+      <ParentComponent />
     </div>
   );
 }

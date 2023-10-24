@@ -1,9 +1,7 @@
-export default function Button() {
+export default function Button(props) {
   return (
     <div>
-      <a href="https://reactjs.org">
-        <button>Click Here</button>
-      </a>
+      <button onClick={props.clickHandler}>{props.action} Here</button>
     </div>
   );
 }

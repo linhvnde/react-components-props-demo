@@ -10,10 +10,45 @@ import StudentList from './components/StudentList';
 import Message from './components/Message';
 import ClickHandler from './components/ClickHandler';
 import ParentComponent from './components/ParentComponent';
+import Counter from './components/Counter';
+import MoviesList from './components/MoviesList';
+import { useState } from 'react';
 function App() {
+  const [theme, setTheme] = useState('Light');
+  const [name, setName] = useState('');
+  const [showName, setShowName] = useState(false); 
+  
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.trim() !== '') {
+      // Checks if name is not empty or just whitespace
+      setShowName(true);
+    } else {
+      alert('Please enter a name');
+    }
+  } 
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <Navbar />
+      <select onChange={(event) => setTheme(event.target.value)}>
+        <option value="light"> Light </option>
+        <option value="dark"> Dark </option>
+      </select>
+      <form>
+        <label>Name:</label>
+        <input
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button onClick={handleSubmit} type="submit">
+          Submit
+        </button>
+      </form>
+      {/* Checks the condition if showName is  
+      true, which will be true only if  
+      we click on the submit button */}
+      {showName === true && <p>You have submitted. Name: {name}</p>}
       <Greeting name="Harper" />
       <Greeting name="Jan" />
       <Greeting name="K" />
@@ -48,6 +83,10 @@ function App() {
 
       <br />
       <ParentComponent />
+      <br />
+      <Counter />
+      <br />
+      <MoviesList />
     </div>
   );
 }
